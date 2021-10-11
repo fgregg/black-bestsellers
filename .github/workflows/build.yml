@@ -1,0 +1,35 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy site
+
+
+# Controls when the action will run. 
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ob
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: build db
+        run: |
+          pip install -r requirements.txt
+          make bbs.db
+
+      - name: Set up Cloud Run
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          service_account_email: ${{ secrets.GCP_SA_EMAIL }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+      - name: Deploy to Cloudrun
+        run: |
+          gcloud config set run/region us-central1
+          gcloud config set project bbs
+          datasette publish cloudrun bbs.db \
+            --service bbs \
+            -m metadata.yml \
+            --extra-options="--setting hash_urls 1" \
+            --version-note=$GITHUB_RUN_NUMBER
