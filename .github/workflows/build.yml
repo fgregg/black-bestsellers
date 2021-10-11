@@ -30,4 +30,4 @@ jobs:
             --service bbs \
             -m metadata.yml \
             --extra-options="--setting hash_urls 1" \
-a            --version-note=$GITHUB_RUN_NUMBER
+            --version-note=$GITHUB_RUN_NUMBER
