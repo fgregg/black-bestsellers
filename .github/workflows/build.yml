@@ -25,7 +25,7 @@ jobs:
       - name: Deploy to Cloudrun
         run: |
           gcloud config set run/region us-central1
-          gcloud config set project bbs
+          gcloud config set project black-bestsellers
           datasette publish cloudrun bbs.db \
             --service bbs \
             -m metadata.yaml \
