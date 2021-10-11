@@ -28,6 +28,6 @@ jobs:
           gcloud config set project bbs
           datasette publish cloudrun bbs.db \
             --service bbs \
-            -m metadata.yml \
+            -m metadata.yaml \
             --extra-options="--setting hash_urls 1" \
             --version-note=$GITHUB_RUN_NUMBER
