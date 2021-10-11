@@ -1,0 +1,12 @@
+databases:
+  bbs :
+    tables :
+      bbs :
+        facets:
+          - Type
+          - Gender
+          - Publisher
+          - Format
+          - Imprint
+allow_sql :
+  id : root
