@@ -9,9 +9,7 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-ob
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       - name: build db
@@ -32,4 +30,4 @@ ob
             --service bbs \
             -m metadata.yml \
             --extra-options="--setting hash_urls 1" \
-            --version-note=$GITHUB_RUN_NUMBER
+a            --version-note=$GITHUB_RUN_NUMBER
