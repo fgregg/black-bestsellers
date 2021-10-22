@@ -28,6 +28,7 @@ jobs:
           gcloud config set project black-bestsellers
           datasette publish cloudrun bbs.db \
             --plugins-dir=datasette_bbs/ \
+            --template-dir=templates/ \
             --service bbs \
             -m metadata.yaml \
             --version-note=$GITHUB_RUN_NUMBER
