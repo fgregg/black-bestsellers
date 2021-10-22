@@ -4,7 +4,7 @@ datasette : bbs.db
 
 bbs.db : bbs.csv
 	- rm $@
-	csvs-to-sqlite $^ $@  -i Title -i Author -i Publisher -i Imprint -d "Publication Date" -f Author -f Title -f Publisher -f Imprint
+	csvs-to-sqlite $^ $@  -pk ISBN -i Title -i Author -i Publisher -i Imprint -d "Publication Date" -f Author -f Title -f Publisher -f Imprint
 
 bbs.csv : raw/BBS_Sep_27_2021.xlsx\ -\ Black\ Best-Sellers.csv
 	tail -n +8 "$<" | \
