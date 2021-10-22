@@ -1,2 +1,2 @@
 csvs-to-sqlite
-https://github.com/fgregg/datasette/archive/refs/heads/main.zip
+https://github.com/fgregg/datasette/archive/refs/heads/publish.zip
