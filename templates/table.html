@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ database }}: {{ table }}: {% if filtered_table_rows_count or filtered_table_rows_count == 0 %}{{ "{:,}".format(filtered_table_rows_count) }} row{% if filtered_table_rows_count == 1 %}{% else %}s{% endif %}{% endif %}
-    {% if human_description_en %}where {{ human_description_en }}{% endif %}{% endblock %}
+{% block title %}Best Selling Black Books{% endblock %}
 
 {% block extra_head %}
 {{ super() }}
@@ -10,17 +9,15 @@
 @media only screen and (max-width: 576px) {
 {% for column in display_columns -%}
     .rows-and-columns td:nth-of-type({{ loop.index }}):before { content: "{{ column.name|escape_css_string }}"; }
-{% endfor %}}
+    {% endfor %}}
+svg.dropdown-menu-icon {display: none}
 </style>
 {% endblock %}
 
-{% block body_class %}table db-{{ database|to_css_class }} table-{{ table|to_css_class }}{% endblock %}
 
 {% block content %}
-<div class="page-header" style="border-color: #{{ database_color(database) }}">
-  <h1>Best Selling Black Books</h1>
+<h1>Best Selling Black Books</h1>
 
-</div>
 
   <h2>By Mariame Kaba and Catherine Richardson</h2>
 
@@ -107,11 +104,6 @@
     </ul>
 </div>
 {% endif %}
-
-{% if query.sql and allow_execute_sql %}
-    <p><a class="not-underlined" title="{{ query.sql }}" href="{{ urls.database(database) }}?{{ {'sql': query.sql}|urlencode|safe }}{% if query.params %}&amp;{{ query.params|urlencode|safe }}{% endif %}">&#x270e; <span class="underlined">View and edit SQL</span></a></p>
-{% endif %}
-
 
 
 {% if facet_results %}
