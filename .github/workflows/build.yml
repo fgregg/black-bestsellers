@@ -30,5 +30,4 @@ jobs:
             --plugins-dir=datasette_bbs/ \
             --service bbs \
             -m metadata.yaml \
-            --extra-options="--setting hash_urls 1" \
             --version-note=$GITHUB_RUN_NUMBER
