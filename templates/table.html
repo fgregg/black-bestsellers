@@ -10,7 +10,13 @@
 {% for column in display_columns -%}
     .rows-and-columns td:nth-of-type({{ loop.index }}):before { content: "{{ column.name|escape_css_string }}"; }
     {% endfor %}}
+@media only screen and (min-width: 575px) {
+    body {margin-left: 2em; margin-right: 2em}
+}
 svg.dropdown-menu-icon {display: none}
+body {background-color: #f7f7f7}
+h1 {font-size: 2.4rem; font-family: Electra; margin-bottom: 0}
+h2 {font-size: 1.2rem; margin-top: 0rem; margin-bottom: 1.5rem}
 </style>
 {% endblock %}
 
