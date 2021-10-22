@@ -1,6 +1,6 @@
 .PHONY : datasette
 datasette : bbs.db
-	datasette $< --metadata metadata.yaml --plugins-dir=datasette_bbs/ --template-dir=templates/
+	datasette $< --metadata metadata.yaml --plugins-dir=datasette_bbs/ --template-dir=templates/ --setting default_facet_size 5
 
 bbs.db : bbs.csv
 	- rm $@
