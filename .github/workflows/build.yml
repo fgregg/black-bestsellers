@@ -27,6 +27,7 @@ jobs:
           gcloud config set run/region us-central1
           gcloud config set project black-bestsellers
           datasette publish cloudrun bbs.db \
+            --plugins-dir=datasette_bbs/
             --service bbs \
             -m metadata.yaml \
             --extra-options="--setting hash_urls 1" \
