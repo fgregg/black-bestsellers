@@ -32,4 +32,5 @@ jobs:
             --service bbs \
             -m metadata.yaml \
             --version-note=$GITHUB_RUN_NUMBER \
-            --extra-options="--setting default_facet_size 5"
+            --extra-options="--setting default_facet_size 5" \
+            --extra-options="--setting default_page_size 25" \            
