@@ -16,13 +16,22 @@
 svg.dropdown-menu-icon {display: none}
 body {background-color: #f7f7f7}
 h1 {font-size: 2.4rem; font-family: Electra;}
+img.banner {max-width: 100%; height: auto;}
+p.next {text-align: right; font-size: 1.3rem}
 </style>
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-to
+uch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="manifest" href="assets/site.webmanifest">
+<link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
 {% endblock %}
 
 
 {% block content %}
-<h1>Best Selling Black Books</h1>
-
+<img class='banner' src='/assets/best_selling_black_books.png' alt="Best Selling Black Books"/>
 
 <p>This is a corpus of best selling books by Black authors from 2004 through September, 2021. The database includes backlist titles published earlier, but the sales data is from 2004 to September 2021. This was created as a part of an assignment to create a LibGuide for the Pratt Library and Information Studies program.</p>
 
@@ -44,9 +53,9 @@ h1 {font-size: 2.4rem; font-family: Electra;}
 {% endif %}
 
 
-<form class="filters" action="{{ urls.table(database, table) }}" method="get">
+<form class="filters" action="/" method="get">
     {% if supports_search %}
-        <div class="search-row"><label for="_search">Search:</label><input id="_search" type="search" name="_search" value="{{ search }}"></div>
+        <div class="search-row"><label for="_search">Search:</label><input id="_search" type="search" name="_search" value="{{ search }}" required="true"></div>
     {% endif %}
 </form>
 
@@ -96,7 +105,7 @@ h1 {font-size: 2.4rem; font-family: Electra;}
 {% include custom_table_templates %}
 
 {% if next_url %}
-     <p><a href="{{ next_url }}">Next page</a></p>
+     <p class='next'><a href="{{ next_url }}">Next page</a></p>
 {% endif %}
 
 {% endblock %}
