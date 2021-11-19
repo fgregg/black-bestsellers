@@ -55,7 +55,7 @@ uch-icon.png">
 
 <form class="filters" action="/" method="get">
     {% if supports_search %}
-        <div class="search-row"><label for="_search">Search:</label><input id="_search" type="search" name="_search" value="{{ search }}" required="true" pattern="^[^\s]*$", title='Search for text'></div>
+        <div class="search-row"><label for="_search">Search:</label><input id="_search" type="search" name="_search" value="{{ search }}" required="true" pattern="[\s\S]*\S[\s\S]*", title='Search for text'></div>
     {% endif %}
 </form>
 
